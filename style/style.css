@@ -1,0 +1,209 @@
+:root {
+    --CP : #000080;
+    --CS : #ffffff;
+    --CT : gainsboro;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+a, a:visited, a:focus{
+    text-decoration: none;
+    color: inherit;
+    color: white;
+    font: 1em sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-size: large;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 900px) and (max-width: 1700px) {
+    header {
+        display: flex;
+        background-color: var(--CS);
+        width: 100%;
+        height: 10vh;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    header .Logo {
+        display: flex;
+        width: 50%;
+        height: 100%;
+        flex-direction: row;
+        align-items: center;
+        gap: 5%;
+        background-color: aqua;
+    }
+
+    header .Vues {
+        display: flex;
+        width: 40%;
+        height: 100%;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 2%;
+        background-color: antiquewhite;
+    }
+
+    .Vues {
+        display: flex;
+        width: 5%;
+        height: 100%;
+        font-size: 170%;
+    }
+
+    .Vues i {
+        cursor: pointer;
+    }
+
+    .SousMenu {
+        display: flex;
+        width: 23%;
+        height: auto;
+        position: absolute;
+        margin-top: 1%;
+        margin-left: -5%;
+        background-color: var(--CT);
+    }
+
+    .Recherche .Barre_recherche {
+        flex-direction: column;
+        max-height: 15%;
+    }
+
+    .Barre_recherche .Texte {
+        display: flex;
+        font-size: x-large;
+        width: 90%;
+        height: 50%;
+        align-items: center;
+        margin-left: 5%;
+    }
+
+    .Barre_recherche .Input {
+        display: flex;
+        width: 90%;
+        height: 45%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-left: 5%;
+        border: black 1px solid;
+        border-radius: 5px;
+    }
+
+    .Barre_recherche .Input input {
+        display: flex;
+        width: 85%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        border: none;
+    }
+
+    .Barre_recherche .Input input::placeholder {
+        display: flex;
+        margin-left: 5px;
+    }
+
+    .Barre_recherche .Input i {
+        display: flex;
+        width: 15%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: var(--CS);
+    }
+
+    .Elements {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .Elements .Texte {
+        display: flex;
+        font-size: large;
+        width: 90%;
+        height: 50%;
+        align-items: center;
+        margin-left: 5%;
+        justify-content: space-between;
+        margin-top: 4%;
+        margin-bottom: 5%;
+    }
+
+    .Elements .Element {
+        display: flex;
+        width: 90%;
+        height: 95%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 5px;
+        margin-left: 5%;
+        margin-top: 2%;
+        margin-bottom: 4%;
+        background-color: var(--CS);
+    }
+
+    .Elements .Element .Information {
+        font-size: small;
+        margin: 2%;
+    }
+
+    .Elements .Element i {
+        font-size: medium;
+        margin: 2%; 
+    }
+
+    .Compte {
+        flex-direction: column;
+        gap: 4px;
+        margin-left: -13%;
+        min-height: 10%;
+        gap: 10px;
+    }
+
+    .Compte .Texte {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+        font-size: large;
+        margin-top: 3%;
+    }
+
+    .Compte .Options {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 50%;
+        font-size: medium;
+        justify-content: space-evenly;
+        color: var(--CP);
+        margin-bottom: 3%;
+    }
+}
