@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400;500&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="style/style.css">
+    <script src="script/script.js"></script>
     <title>Accueil</title>
 </head>
 <body>
@@ -20,9 +21,9 @@
                 <i>FR</i>
             </div>
             <div class="Notification">
-                <i class="fas fa-bell"></i>
+                <i class="fas fa-bell" onclick="AfficheSousBranche('Notification')"></i>
 
-                <div class="Elements SousMenu" style="display: none;">
+                <div class="Elements SousMenu slide-in">
                     <div class="Texte"><strong>Notifications récentes :</strong> <i class="fas fa-trash" style="color: red;"></i></div>
                     <div class="Element">
                         <div class="Information">Bonjour, je suis Brayan, Etudiant en Bachelor 2</div>
@@ -47,9 +48,9 @@
                 </div>
             </div>
             <div class="Recherche">
-                <i class="fas fa-search"></i>
+                <i class="fas fa-search" onclick="AfficheSousBranche('Recherche')"></i>
 
-                <div class="Barre_recherche SousMenu" style="display: none;">
+                <div class="Barre_recherche SousMenu slide-in">
                     <div class="Texte"><strong>Rechercher :</strong></div>
                     <div class="Input">
                         <input type="text" placeholder="Entrer l'élément rechercher">
@@ -58,28 +59,78 @@
                 </div>
             </div>
             <div class="Utilisateur">
-                <i class="fas fa-user-circle FormIcon"></i>
+                <i class="fas fa-user-circle" onclick="AfficheSousBranche('Utilisateur')"></i>
 
-                <div class="Compte SousMenu" style="display: none;">
+                <div class="Compte SousMenu slide-in">
                     <div class="Texte"><strong>Aucun compte connecté</strong></div>
                     <div class="Options">
-                        <div class="Inscrire">S'incrire</div>
-                        <div class="Connecter">Se connecter</div>
+                        <div class="Inscrire underline">S'incrire</div>
+                        <div class="Connecter underline">Se connecter</div>
+                    </div>
+                </div>
+
+                <div class="Compte SousMenu slide-in">
+                    <div class="Profil">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="Identification">
+                            <div class="Nom"><strong>Nom d'utilisation</strong></div>
+                            <div class="Eamil">email@gmail.com</div>
+                        </div>
+                        <i class="fas fa-cog Parametre"></i>
+                    </div>
+                    <div class="Option">
+                        <div class="Deconnexion underline">Se déconnecter</div>
                     </div>
                 </div>
             </div>
             <div class="Menu">
-                <i class="fas fa-bars"></i>
-
-                <div class="Barre_recherche SousMenu" style="display: none;">
-                    <div class="Texte">Rechercher :</div>
-                    <div class="Input">
-                        <input type="text" placeholder="Entrer l'élément rechercher">
-                        <i class="fas fa-close"></i>
-                    </div>
-                </div>
+                <i class="fas fa-bars" onclick="AfficherMenu()"></i>
             </div>
         </div>
     </header>
+
+    <div class="ArrierePlan" onclick="AfficherMenu()">
+        <div class="Pages">
+            <div class="Page Actuel" style="margin-top: 10%;"><a href="#">Accueil</a></div>
+            <div class="Page"><a href="#">Transactions</a></div>
+            <div class="Page"><a href="#">Historiques</a></div>
+            <div class="Page"><a href="#">Comptes</a></div>
+            <div class="Page"><a href="#">Contact</a></div>
+        </div>
+    </div>
+
+
+
+    <section class="Publicite" style="margin-bottom: 5%;">
+        <div class="Affiches">
+            <div class="Affiche content show" data-content="0">
+                <h1>Bienvenue chez Groupe 6</h4>
+                <h2>Application de transfert d'argent</h2>
+                <button>Voir</button>
+            </div>
+            <div class="Affiche content" data-content="1">
+                <h1>Bienvenue chez Groupe 6</h4>
+                <h2>Application de transfert d'argent</h2>
+                <button>Voir</button>
+            </div>
+            <div class="Affiche content" data-content="2">
+                <h1>Bienvenue chez Groupe 6</h4>
+                <h2>Application de transfert d'argent</h2>
+                <button>Voir</button>
+            </div>
+        </div>
+
+        <div class="Choix">
+            <ul class="choice_link">
+                <li class="Actuel" data-contentTrigger="0" onclick="changeInputContainer(this)">1</li>
+                <li data-contentTrigger="1" onclick="changeInputContainer(this)">2</li>
+                <li data-contentTrigger="2" onclick="changeInputContainer(this)">3</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="Infos">
+        <h1>Bonjour</h1>
+    </section>
 </body>
 </html>
