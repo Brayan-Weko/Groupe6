@@ -4,6 +4,7 @@
     --CT : gainsboro;
     --CQ : aliceblue;
     --CC : black;
+    --Validation-Bouton : green;
 }
 
 *{
@@ -32,6 +33,12 @@ a, a:visited, a:focus{
 .slide-in {
     opacity: 0;
     transform: translateX(-20px);
+    animation: slideInRight 1s forwards;
+}
+
+.slide-in1 {
+    opacity: 0;
+    transform: translateX(-50%);
     animation: slideInRight 1s forwards;
 }
 
@@ -89,13 +96,21 @@ a, a:visited, a:focus{
 
     header {
         display: flex;
+        position: fixed;
+        top: 0;
         background-color: var(--CS);
         width: 100%;
         height: 10vh;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        background-color: var(--CP) transparent;
+        z-index: 1;
     }
+
+    header.scrolled {
+        background-color: var(--CT);
+      }
     
     header .Logo {
         display: flex;
@@ -104,7 +119,6 @@ a, a:visited, a:focus{
         flex-direction: row;
         align-items: center;
         gap: 5%;
-        background-color: aqua;
     }
 
     header .Vues {
@@ -115,7 +129,6 @@ a, a:visited, a:focus{
         justify-content: space-evenly;
         align-items: center;
         gap: 2%;
-        background-color: antiquewhite;
     }
 
     .Vues {
@@ -379,11 +392,11 @@ a, a:visited, a:focus{
         transform: translateX(0);
     }
 
-    body.Menu .ArrierePlan {
+    body.Menu .ArrierePlanMenu {
         display: flex;
     }
 
-    .ArrierePlan {
+    .ArrierePlanMenu {
         display: none;
         position: fixed;
         top: 0;
@@ -393,6 +406,244 @@ a, a:visited, a:focus{
         background-color: rgba(0, 0, 0, 0.5);
         z-index: 1;
     }
+
+
+
+
+
+    .ArrierePlanConnexion {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    body.Connecter .Connexion{
+        transform: translateX(0);
+    }
+
+    body.Connecter .ArrierePlanConnexion {
+        display: flex;
+    }
+
+    .Connexion {
+        display: flex;
+        position: absolute;
+        top: 5%;
+        left: 15%;
+        width: 70%;
+        height: 90%;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 1%;
+        background-color: var(--CS);
+        z-index: 1;
+        transform: translateX(150%);
+        transition: all 0.5s;
+    }
+
+    .Connexion .Titre {
+        display: flex;
+        width: 90%;
+        height: 10%;
+        font-size: xx-large;
+        font-weight: bolder;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .Connexion .Bouton {
+        display: flex;
+        width: 90%;
+        height: 10%;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    
+    .Connexion .Bouton button {
+        display: flex;
+        width: 80%;
+        height: 90%;
+        border: 2px var(--Validation-Bouton) solid;
+        border-radius: 0px;
+        background-color: white;
+        justify-content: center;
+        color: var(--Validation-Bouton);
+        align-items: center;
+        text-align: center;
+        font-size: xx-large;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+    
+    .Connexion .Bouton button:hover {
+        background-color: var(--Validation-Bouton);
+        color: white;
+    }
+
+
+
+    .ArrierePlanInscription {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+
+    body.Inscrire .Inscription{
+        transform: translateX(0);
+    }
+
+    body.Inscrire .ArrierePlanInscription {
+        display: flex;
+    }
+
+    .Inscription {
+        display: flex;
+        position: absolute;
+        top: 5%;
+        left: 15%;
+        width: 70%;
+        height: 90%;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 1%;
+        background-color: var(--CS);
+        z-index: 1;
+        transform: translateX(150%);
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .Inscription .Titre {
+        display: flex;
+        width: 90%;
+        height: 10%;
+        font-size: xx-large;
+        font-weight: bolder;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+    }
+    
+    .Formulaire {
+        display: flex;
+        width: 90%;
+        height: 70%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+        overflow-y: auto;
+    }
+    
+    .Formulaire .colonne {
+        display: flex;
+        width: 100%;
+        height: 10%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 5%;
+    }
+    
+    .Formulaire .colonne .InputContainer {
+        width: 47%;
+        position: relative;
+    }
+    
+    .Formulaire .colonne .InputContainer .Input {
+        position: absolute;
+        top: 10px;
+        left: 5%;
+        transition: all 0.3s;
+        pointer-events: none;
+        font-size: large;
+        color: black;
+    }
+    
+    .Formulaire .colonne .InputContainer input {
+        border: none;
+        border-bottom: 3px solid black;
+        outline: none;
+        padding: 10px;
+        transition: all 0.3s;
+        width: 100%;
+    }
+    
+    .Formulaire .colonne .InputContainer input:focus {
+        border-color: var(--Validation-Bouton);
+    }
+    
+    .Formulaire .colonne .InputContainer input:focus + .Input {
+        top: -10px;
+        font-size: small;
+        left: 5px;
+    }
+    
+    .Formulaire .colonne .InputContainer input:valid + .Input {
+        top: -10px;
+        font-size: small;
+        left: 5px;
+        color: black;
+    }
+
+    .Formulaire .colonne .InputContainer i {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        font-size: 1.5rem;
+        pointer-events: none;
+    }
+
+    .Formulaire .colonne .InputContainer input[type="date"] {
+        color: transparent;
+    }
+    
+    .Inscription .Bouton {
+        display: flex;
+        width: 90%;
+        height: 10%;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    
+    .Inscription .Bouton button {
+        display: flex;
+        width: 80%;
+        height: 90%;
+        border: 2px var(--Validation-Bouton) solid;
+        border-radius: 0px;
+        background-color: white;
+        justify-content: center;
+        color: var(--Validation-Bouton);
+        align-items: center;
+        text-align: center;
+        font-size: xx-large;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+    
+    .Inscription .Bouton button:hover {
+        background-color: var(--Validation-Bouton);
+        color: white;
+    }
+
+
+
 
 
 
@@ -422,7 +673,7 @@ a, a:visited, a:focus{
         align-items: center;
         align-content: center;
         position: absolute;
-        bottom: -8%;
+        bottom: 0;
         left: 42.5%;
         right: 42.5%;
     }
@@ -505,5 +756,433 @@ a, a:visited, a:focus{
         background-color: var(--CP);
         color: var(--CS);
         border: none;
+    }
+
+
+    .body {
+        width: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.1), #333);
+    }
+      
+    .body video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1;
+    }
+
+
+    .Infos {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3%;
+        background-color: var(--CP);
+        border-top-left-radius: 30%;
+        border-bottom-right-radius: 30%;
+    }
+
+    .Infos h1 {
+        display: flex;
+        width: 95%;
+        height: 10%;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        font-size: 300%;
+    }
+
+    .Infos section {
+        display: flex;
+        width: 95%;
+        height: 87%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 2%;
+    }
+
+    .Infos section .Info {
+        display: flex;
+        width: 32%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2%;
+    }
+
+    .Infos section .Info img {
+        display: flex;
+        width: 100%;
+        height: 70%;
+    }
+
+    .Infos section .Info h2 {
+        display: flex;
+        width: 100%;
+        height: 8%;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        font-size: xx-large;
+    }
+
+    .Infos section .Info span {
+        display: flex;
+        width: 100%;
+        height: 25%;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        font-size: 150%;
+        text-align: center;
+    }
+
+
+
+    .Solde {
+        display: flex;
+        width: 100%;
+        height: 50vh;
+        flex-direction: column;
+        align-items: center;
+        gap: 3%;
+        background-color: var(--CQ);
+        border-radius: 10px;
+    }
+
+    .Solde .Titre {
+        display: flex;
+        width: 100%;
+        height: 28%;
+        background-color: var(--CP);
+    }
+
+    .Solde .Titre h1 {
+        display: flex;
+        width: 90%;
+        height: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        font-size: 300%;
+        margin-left: 3%;
+        gap: 3%;
+        color: var(--CS);
+    }
+
+
+    .Solde section {
+        display: flex;
+        width: 90%;
+        height: 65%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 125%;
+    }
+
+    .Solde section i {
+        display: flex;
+        width: 15%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        font-size: 700%;
+    }
+
+    .Solde section .Info {
+        display: flex;
+        width: 85%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .Solde section .Info h1 {
+        display: flex;
+        width: 100%;
+        height: 30%;
+        justify-content: flex-start;
+        font-size: 200%;
+    }
+
+    .Solde section .Info h2 {
+        display: flex;
+        width: 100%;
+        height: 30%;
+        justify-content: flex-start;
+    }
+
+    .Solde .Lien {
+        display: flex;
+        width: 100%;
+        height: 20%;
+        background-color: var(--CT);
+        color: var(--CP);
+    }
+
+    .Solde .Lien h2 {
+        display: flex;
+        width: 90%;
+        height: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        font-size: 200%;
+        margin-left: 3%;
+        gap: 3%;
+        cursor: pointer;
+    }
+
+    .Solde .Lien:hover {
+        background-color: var(--CP);
+        color: var(--CS);
+    }
+
+
+
+
+
+    .Actions {
+        display: flex;
+        width: 100%;
+        height: 60vh;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        background-color: var(--CS);
+        border-radius: 30px;
+    }
+
+    .Actions h1 {
+        display: flex;
+        width: 95%;
+        height: 20%;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        font-size: 300%;
+    }
+
+    .Actions section {
+        display: flex;
+        flex-wrap: wrap;
+        width: 95%;
+        height: 87%;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        gap: 2%;
+    }
+
+    .Actions section .Action {
+        display: flex;
+        width: 15%;
+        height: 80%;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        cursor: pointer;
+        gap: 3%;
+    }
+
+    .Actions section .Action:hover {
+        background-color: var(--CT);
+        border-radius: 10%;
+    }
+
+    .Actions section .Action .img {
+        display: flex;
+        width: 100%;
+        height: 66.5%;
+        justify-content: center;
+        align-items: center;
+        padding: 3%;
+        border-radius: 10%;
+        background-color: var(--CT);
+    }
+
+    .Actions section .Action .img img {
+        display: flex;
+        width: 85%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        border-radius: 50%;
+    }
+
+    .Actions section .Action span {
+        display: flex;
+        width: 100%;
+        height: 25%;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        font-size: large;
+        text-align: center;
+    }
+
+
+
+
+    footer {
+        display: flex;
+        position: absolute;
+        width: 100%;
+        height: 30vh;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5%;
+        gap: 2%;
+        background-color: var(--CQ);
+        z-index: 1;
+    }
+
+    footer .Avis {
+        display: flex;
+        width: 40%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        gap: 5%;
+    }
+
+    footer .Avis input {
+        display: flex;
+        width: 100%;
+        height: 20%;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    footer .Avis textarea {
+        display: flex;
+        width: 100%;
+        height: 40%;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        resize: none;
+    }
+
+    footer .Avis button {
+        display: flex;
+        width: 100%;
+        height: 20%;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background-color: var(--CT);
+        border: 2px var(--CP) solid;
+        color: var(--CP);
+        font-size: large;
+        font-weight: bolder;
+        cursor: pointer;
+    }
+
+    footer .Avis button:hover {
+        background-color: var(--CP);
+        color: white;
+    }
+
+    footer .Avis h1 {
+        display: flex;
+        width: 100%;
+        height: 15%;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    footer .Joindre {
+        display: flex;
+        width: 25%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        gap: 10%;
+    }
+
+    footer .Joindre .Telephone {
+        display: flex;
+        width: 100%;
+        height: 40%;
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+    }
+
+    footer .Joindre .Email {
+        display: flex;
+        width: 100%;
+        height: 40%;
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+    }
+
+    footer .Reseaux {
+        display: flex;
+        width: 25%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        align-content: center;
+        align-items: center;
+    }
+
+    footer .Reseaux h1 {
+        display: flex;
+        width: 100%;
+        height: 20%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer .Reseaux .Icones {
+        display: flex;
+        width: 100%;
+        height: 50%;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        font-size: 200%;
+        cursor: pointer;
+    }
+
+
+
+
+
+
+    /* -------------- NOTIFICATION --------------- */
+    .Message {
+        display: flex;
+        position: absolute;
+        top: 5%;
+        left: 25%;
+        width: 50%;
+        height: auto;
+        background-color: red;
+        z-index: 2;
     }
 }

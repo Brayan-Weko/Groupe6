@@ -11,6 +11,14 @@
     <title>Accueil</title>
 </head>
 <body>
+    <!------------  NOTIFICATION  ------------->
+    <div class="Message">
+        <h4></h4>
+        <i class="fa fas-times"></i>
+    </div>
+
+
+
     <header>
         <div class="Logo">
             <div class="Image"></div>
@@ -64,12 +72,12 @@
                 <div class="Compte SousMenu slide-in">
                     <div class="Texte"><strong>Aucun compte connecté</strong></div>
                     <div class="Options">
-                        <div class="Inscrire underline">S'incrire</div>
-                        <div class="Connecter underline">Se connecter</div>
+                        <div class="Inscrire underline" onclick="AfficherInscription()">S'incrire</div>
+                        <div class="Connecter underline" onclick="AfficherConnexion()">Se connecter</div>
                     </div>
                 </div>
 
-                <div class="Compte SousMenu slide-in">
+                <!--<div class="Compte SousMenu slide-in">
                     <div class="Profil">
                         <i class="fas fa-user-circle"></i>
                         <div class="Identification">
@@ -81,7 +89,7 @@
                     <div class="Option">
                         <div class="Deconnexion underline">Se déconnecter</div>
                     </div>
-                </div>
+                </div>-->
             </div>
             <div class="Menu">
                 <i class="fas fa-bars" onclick="AfficherMenu()"></i>
@@ -89,7 +97,7 @@
         </div>
     </header>
 
-    <div class="ArrierePlan" onclick="AfficherMenu()">
+    <div class="ArrierePlanMenu" onclick="AfficherMenu()">
         <div class="Pages">
             <div class="Page Actuel" style="margin-top: 10%;"><a href="#">Accueil</a></div>
             <div class="Page"><a href="#">Transactions</a></div>
@@ -99,38 +107,222 @@
         </div>
     </div>
 
-
-
-    <section class="Publicite" style="margin-bottom: 5%;">
-        <div class="Affiches">
-            <div class="Affiche content show" data-content="0">
-                <h1>Bienvenue chez Groupe 6</h4>
-                <h2>Application de transfert d'argent</h2>
-                <button>Voir</button>
+    <div class="ArrierePlanConnexion" onclick="AfficherConnexion()">
+        <div class="Connexion">
+            <div class="Titre">Connexion</div>
+            <div class="Formulaire">
+                <div class="colonne">
+                    <div class="Option Select">
+                        Numéro de téléphone : <input type="checkbox" name="" id="">
+                    </div>
+                    <div class="Option">
+                        Email : <input type="checkbox" name="" id="">
+                    </div>
+                </div>
+                <div class="colonne">
+                    <div class="InputContainer Numero">
+                        <input type="text" name="" id="" required>
+                        <label for="" class="Input">Numéro de téléphone</label>
+                    </div>
+                    <div class="InputContainer Mdp">
+                        <input type="password" name="" id="" required>
+                        <label for="" class="Input">Mot de passe</label>
+                    </div>
+                </div>
+                <div class="colonne">
+                    <div class="InputContainer Email">
+                        <input type="text" name="" id="" required>
+                        <label for="" class="Input">Adresse mail</label>
+                    </div>
+                    <div class="InputContainer Mdp">
+                        <input type="password" name="" id="" required>
+                        <label for="" class="Input">Mot de passe</label>
+                    </div>
+                </div>
             </div>
-            <div class="Affiche content" data-content="1">
-                <h1>Bienvenue chez Groupe 6</h4>
-                <h2>Application de transfert d'argent</h2>
-                <button>Voir</button>
-            </div>
-            <div class="Affiche content" data-content="2">
-                <h1>Bienvenue chez Groupe 6</h4>
-                <h2>Application de transfert d'argent</h2>
-                <button>Voir</button>
+            <div class="Bouton">
+                <button>Se connecter</button>
             </div>
         </div>
+    </div>
 
-        <div class="Choix">
-            <ul class="choice_link">
-                <li class="Actuel" data-contentTrigger="0" onclick="changeInputContainer(this)">1</li>
-                <li data-contentTrigger="1" onclick="changeInputContainer(this)">2</li>
-                <li data-contentTrigger="2" onclick="changeInputContainer(this)">3</li>
-            </ul>
+    <div class="ArrierePlanInscription" onclick="AfficherInscription()">
+        <div class="Inscription">
+            <div class="Titre">Inscription</div>
+            <div class="Formulaire">
+                <div class="colonne">
+                    <div class="InputContainer Nom">
+                        <input type="text" name="" id="saveNom" onchange="VerificationNom('saveNom')" required>
+                        <label for="" class="Input">Entrer votre nom</label>
+                        <i></i>
+                    </div>
+                    <div class="InputContainer Prenom">
+                        <input type="text" name="" id="savePrenom" onchange="VerificationPrenom('savePrenom')" required>
+                        <label for="" class="Input">Entrer votre prénom</label>
+                        <i></i>
+                    </div>
+                </div>
+                <div class="colonne">
+                    <div class="InputContainer Numero">
+                        <input type="text" name="" id="saveNumero" onchange="VerificationNumero('saveNumero')" required>
+                        <label for="" class="Input">Entrer votre numéro de téléphone</label>
+                        <i></i>
+                    </div>
+                    <div class="InputContainer Mail">
+                        <input type="email" name="" id="saveMail" onchange="VerificationMail('saveMail')" required>
+                        <label for="" class="Input">Entrer votre adresse mail</label>
+                        <i></i>
+                    </div>
+                </div>
+                <div class="colonne">
+                    <div class="InputContainer Date">
+                        <input type="text" name="" id="saveDate" onchange="VerificationDate('saveDate')" required>
+                        <label for="" class="Input">Entrer votre date de naissance</label>
+                        <i></i>
+                    </div>
+                    <div class="InputContainer Lieu">
+                        <input type="text" name="" id="saveLieu" onchange="VerificationLieu('saveLieu')" required>
+                        <label for="" class="Input">Entrer votre lieu de naissance</label>
+                        <i></i>
+                    </div>
+                </div>
+                <div class="colonne">
+                    <div class="InputContainer Utilisateur">
+                        <input type="text" name="" id="saveUsername" onchange="VerificationUsername('saveUsername')" required>
+                        <label for="" class="Input">Entrer votre nom d'utilisateur</label>
+                        <i></i>
+                    </div>
+                    <div class="InputContainer MotDePasse">
+                        <input type="password" name="" id="" required>
+                        <label for="" class="Input">Entrer votre mot de passe</label>
+                        <i></i>
+                    </div>
+                </div>
+                <div class="colonne">
+                    <div class="InputContainer MDP1">
+                        <input type="password" name="" id="saveMDP1" onchange="VerificationPassword('saveMDP1')" required>
+                        <label for="" class="Input">Entrer votre mot de passe</label>
+                        <i></i>
+                    </div>
+                    <div class="InputContainer MDP2">
+                        <input type="password" name="" id="saveMDP2" onchange="VerificationPassword2('saveMDP2')" required>
+                        <label for="" class="Input">Vérifier votre mot de passe</label>
+                        <i></i>
+                    </div>
+                </div>
+            </div>
+            <div class="Bouton">
+                <button>S'inscrire</button>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <section class="Infos">
-        <h1>Bonjour</h1>
+
+
+
+    <section class="body">
+        <video autoplay muted loop id="background-video">
+            <source src="frontend/Annonce_bal.mp4" type="video/mp4">
+        </video>
+        <section class="Publicite" style="margin-bottom: 5%;">
+            <div class="Affiches">
+                <div class="Affiche content show" data-content="0">
+                    <h1>Bienvenue chez Groupe 6</h4>
+                    <h2>Application de transfert d'argent</h2>
+                    <button>Voir</button>
+                </div>
+                <div class="Affiche content" data-content="1">
+                    <h1>Bienvenue chez Groupe 6</h4>
+                    <h2>Application de transfert d'argent</h2>
+                    <button>Voir</button>
+                </div>
+                <div class="Affiche content" data-content="2">
+                    <h1>Bienvenue chez Groupe 6</h4>
+                    <h2>Application de transfert d'argent</h2>
+                    <button>Voir</button>
+                </div>
+            </div>
+    
+            <div class="Choix">
+                <ul class="choice_link">
+                    <li class="Actuel" data-contentTrigger="0" onclick="changeInputContainer(this)">1</li>
+                    <li data-contentTrigger="1" onclick="changeInputContainer(this)">2</li>
+                    <li data-contentTrigger="2" onclick="changeInputContainer(this)">3</li>
+                </ul>
+            </div>
+        </section>
+    
+        <section class="Infos">
+            <h1>Nos principes</h1>
+            <section>
+                <div class="Info">
+                    <img src="frontend/img1.jpg" alt="">
+                    <h2 class="slide-in">Fiabilité</h2>
+                    <span>Transferts sécurisées</span>
+                </div>
+                <div class="Info">
+                    <img src="frontend/img1.jpg" alt="">
+                    <h2 class="slide-in">Simplicité</h2>
+                    <span>Uniquement en deux touches et votre code</span>
+                </div>
+                <div class="Info">
+                    <img src="frontend/img1.jpg" alt="">
+                    <h2 class="slide-in">Rapidité</h2>
+                    <span>Transfert en moins de 2 min chrono</span>
+                </div>
+            </section>
+        </section>
+    
+    
+        <section class="Infos" style="margin-top: 5%;">
+            <h1>Nos services</h1>
+            <section>
+                <div class="Info">
+                    <img src="frontend/img1.jpg" alt="">
+                    <h2 class="slide-in1">Transfert d'argent</h2>
+                    <span>Envoyer de l'argent à vos proches, payer vos impôts, vos courses et marchandises</span>
+                </div>
+                <div class="Info">
+                    <img src="frontend/img1.jpg" alt="">
+                    <h2 class="slide-in1">Reception d'argent</h2>
+                    <span>Recevez vos payements</span>
+                </div>
+                <div class="Info">
+                    <img src="frontend/img1.jpg" alt="">
+                    <h2 class="slide-in1">Convertisseur</h2>
+                    <span>Convertisser votre monnaie</span>
+                </div>
+            </section>
+        </section>
     </section>
+    
+
+    <footer>
+        <div class="Avis">
+            <h1>Avis :</h1>
+            <input type="text" name="" id="" placeholder="Entrer votre nom ou adresse mail">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <button>Envoyer</button>
+        </div>
+        <div class="Joindre">
+            <div class="Telephone">
+                <h2>Numéro de téléphone :</h2>
+                <h3>638392200 / 645272929</h3>
+            </div>
+            <div class="Email">
+                <h2>Adresse mail :</h2>
+                <h3>adresse@gmail.com</h3>
+            </div>
+        </div>
+        <div class="Reseaux">
+            <h1>Nos pages : </h1>
+            <div class="Icones">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-twitter"></i>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

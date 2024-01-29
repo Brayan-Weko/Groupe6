@@ -5,11 +5,10 @@ function AfficheSousBranche(SousBranche) {
         divCible.classList.add(SousBranche);
     } else {
         divCible.className = 'Vues';
-        divCible.classList.add(SousBranche);
     }
 }
 
-window.addEventListener('click', function(event) {
+/*window.addEventListener('click', function(event) {
     if (!divCible.contains(event.target)) {
         divCible.className = 'Vues';
     }
@@ -17,7 +16,18 @@ window.addEventListener('click', function(event) {
 
 window.addEventListener('scroll', function() {
     divCible.className = 'Vues';
-});
+});*/
+
+window.addEventListener('scroll', function() {
+    var header = document.querySelector('header');
+    var headerHeight = header.offsetHeight;
+    
+    if (window.pageYOffset > headerHeight) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
 
 function AfficheSousMenu(element) {
     var sousMenu = element.nextElementSibling;
@@ -31,11 +41,47 @@ function CacheSousMenu(element) {
 
 function AfficherMenu() {
     divCible = document.querySelector("body");
+    var divPages = document.querySelector(".Pages");
+
     if (divCible.classList.contains("Menu")) {
         divCible.classList.remove("Menu");
     } else {
         divCible.classList.add("Menu");
     }
+
+    divPages.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+}
+
+function AfficherInscription() {
+    divCible = document.querySelector("body");
+    var divInscription = document.querySelector(".Inscription");
+
+    if (divCible.classList.contains("Inscrire")) {
+        divCible.classList.remove("Inscrire");
+    } else {
+        divCible.classList.add("Inscrire");
+    }
+
+    divInscription.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
+}
+
+function AfficherConnexion() {
+    divCible = document.querySelector("body");
+    var divConnexion = document.querySelector(".Connexion");
+
+    if (divCible.classList.contains("Connecter")) {
+        divCible.classList.remove("Connecter");
+    } else {
+        divCible.classList.add("Connecter");
+    }
+
+    divConnexion.addEventListener('click', function(event) {
+        event.stopPropagation();
+    });
 }
 
 
@@ -89,3 +135,134 @@ function changeContentAutomatically() {
 }
 
 setInterval(changeContentAutomatically, 5000); // Change l'affiche toutes les 3 secondes
+
+
+
+
+
+
+
+
+function VerificationNom(idCible) {
+    var input = document.getElementById(idCible);
+    var icon = input.parentNode.querySelector('i');
+  
+    if (input.value.length >= 3) {
+      icon.className = "fas fa-check";
+      icon.style.color = "green";
+    } else {
+      icon.className = "fas fa-times";
+      icon.style.color = "red";
+    }
+  }
+  
+  function VerificationPrenom(idCible) {
+    var input = document.getElementById(idCible);
+    var icon = input.parentNode.querySelector('i');
+  
+    if (input.value.length >= 5) {
+      icon.className = "fas fa-check";
+      icon.style.color = "green";
+    } else {
+      icon.className = "fas fa-times";
+      icon.style.color = "red";
+    }
+  }
+  
+  function VerificationNumero(idCible) {
+    var input = document.getElementById(idCible);
+    var icon = input.parentNode.querySelector('i');
+  
+    if (/^\d{9}$/.test(input.value)) {
+      icon.className = "fas fa-check";
+      icon.style.color = "green";
+    } else {
+      icon.className = "fas fa-times";
+      icon.style.color = "red";
+    }
+  }
+  
+  function VerificationMail(idCible) {
+    var input = document.getElementById(idCible);
+    var icon = input.parentNode.querySelector('i');
+  
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
+      icon.className = "fas fa-check";
+      icon.style.color = "green";
+    } else {
+      icon.className = "fas fa-times";
+      icon.style.color = "red";
+    }
+  }
+  
+  function VerificationDate(idCible) {
+    var input = document.getElementById(idCible);
+    var icon = input.parentNode.querySelector('i');
+  
+    if (/^\d{2}\/\d{2}\/\d{4}$/.test(input.value)) {
+      icon.className = "fas fa-check";
+      icon.style.color = "green";
+    } else {
+      icon.className = "fas fa-times";
+      icon.style.color = "red";
+    }
+  }
+  
+  function VerificationLieu(idCible) {
+    var input = document.getElementById(idCible);
+    var icon = input.parentNode.querySelector('i');
+  
+    if (input.value.length >= 5) {
+      icon.className = "fas fa-check";
+      icon.style.color = "green";
+    } else {
+      icon.className = "fas fa-times";
+      icon.style.color = "red";
+    }
+  }
+  
+  function VerificationUsername(idCible) {
+    var input = document.getElementById(idCible);
+    var icon = input.parentNode.querySelector('i');
+  
+    if (input.value.length >= 5) {
+      icon.className = "fas fa-check";
+      icon.style.color = "green";
+    } else {
+      icon.className = "fas fa-times";
+      icon.style.color = "red";
+    }
+  }
+  
+  function VerificationPassword(idCible) {
+    var input = document.getElementById(idCible);
+    var icon = input.parentNode.querySelector('i');
+  
+    var hasUpperCase = /[A-Z]/.test(input.value);
+    var hasLowerCase = /[a-z]/.test(input.value);
+    var hasNumber = /\d/.test(input.value);
+    var hasSymbol = /[!@#$%^&*()]/.test(input.value);
+    var isLengthValid = input.value.length >= 8;
+  
+    if (hasUpperCase && hasLowerCase && hasNumber && hasSymbol && isLengthValid) {
+      icon.className = "fas fa-check";
+      icon.style.color = "green";
+    } else {
+      icon.className = "fas fa-times";
+      icon.style.color = "red";
+    }
+  }
+  
+  function VerificationPassword2(idCible) {
+    var input = document.getElementById(idCible);
+    var icon = input.parentNode.querySelector('i');
+    var mdp1Input = document.getElementById("saveMDP1");
+  
+    if (input.value === mdp1Input.value) {
+      icon.className = "fas fa-check";
+      icon.style.color = "green";
+    } else {
+      icon.className = "fas fa-times";
+      icon.style.color = "red";
+    }
+  }
